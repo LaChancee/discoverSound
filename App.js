@@ -17,6 +17,7 @@ export default function App() {
         updateData({
             authenticate: true
         })
+
     }, [data])
 
     return (
