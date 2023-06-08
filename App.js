@@ -1,20 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import LoginScreen from "./src/screen/LoginScreen";
+import Register from "./src/screen/Register";
+import {NavigationContainer} from "@react-navigation/native";
+import {createStackNavigator} from '@react-navigation/stack';
+import UserContextProviders, {UserContext} from "./src/contexts/UserContext";
+import Layout from "./src/Layout/Layout";
+import userContext from "./src/contexts/UserContext";
+import {useEffect} from "react";
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    const {data, updateData} = userContext(UserContext)
+    useEffect(() => {
+        console.log(data);
+        updateData({
+            authenticate: true
+        })
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    }, [data])
+
+    return (
+        <UserContextProviders>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="Login" component={LoginScreen}/>
+                    <Stack.Screen name="Register" component={Register}/>
+                    <Stack.Screen
+                        name="Layout"
+                        component={Layout}
+                        options={{
+                            headerShown: false, // Masquer l'en-tête (header)
+                            initialParams: {user: data},
+                        }}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </UserContextProviders>
+    );
+}
