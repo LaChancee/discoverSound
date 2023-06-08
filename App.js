@@ -7,7 +7,6 @@ import Layout from "./src/Layout/Layout";
 import userContext from "./src/contexts/UserContext";
 import {useEffect} from "react";
 
-
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -20,6 +19,7 @@ export default function App() {
     }, [data])
 
     return (
+
         <UserContextProviders>
             <NavigationContainer>
                 <Stack.Navigator>
@@ -36,5 +36,6 @@ export default function App() {
                 </Stack.Navigator>
             </NavigationContainer>
         </UserContextProviders>
+
     );
 }

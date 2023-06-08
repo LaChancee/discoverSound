@@ -3,10 +3,7 @@ import {View} from "react-native"
 import React, {useContext} from "react";
 
 const HomeScreen = () => {
-
-
     const {userData, setUserData} = useContext(UserContext);
-
 
     return (
         <View>

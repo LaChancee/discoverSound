@@ -4,7 +4,6 @@ import HomeScreen from "../screen/HomeScreen";
 const Tab = createBottomTabNavigator();
 
 function Layout() {
-
     return (
         <Tab.Navigator>
             <Tab.Screen name="Home"

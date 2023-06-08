@@ -8,10 +8,8 @@ const UserContextProviders = ({children}) => {
     const updateData = (newData) => {
         setUserData(newData)
     }
-    return (
-        <UserContext.Provider value={{userData, updateData}}>
-            {children}
-        </UserContext.Provider>
-    )
+    return (<UserContext.Provider value={{userData, updateData}}>
+        {children}
+    </UserContext.Provider>)
 }
 export default UserContextProviders;

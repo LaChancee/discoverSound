@@ -15,7 +15,6 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const navigation = useNavigation();
 
-
     const submit = async () => {
 
         if (password !== confirmPassword) {
@@ -42,9 +41,7 @@ const Register = () => {
         } catch (error) {
             console.log(error);
         }
-
     };
-
 
     return (
         <>
@@ -54,7 +51,6 @@ const Register = () => {
                         <Text style={styles.text}>
                             Inscrivez-vous (par pitié)
                         </Text>
-
                         <TextInput
                             placeholder="Votre nom d'utilisateur"
                             style={styles.textInput}
@@ -66,7 +62,6 @@ const Register = () => {
                             style={styles.textInput}
                             onChangeText={(e) => setEmail(e)}
                         />
-
                         <TextInput
 
                             placeholder="Votre mot de passe"

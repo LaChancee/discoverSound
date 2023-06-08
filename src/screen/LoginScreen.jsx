@@ -18,7 +18,6 @@ const LoginScreen = () => {
     const [err, setError] = useState("")
     const submit = async () => {
 
-
         try {
             const response = await axios.post("https://8830-83-118-208-130.ngrok-free.app/login", {
                 email: email,
@@ -47,7 +46,6 @@ const LoginScreen = () => {
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>
-
             <View>
                 <Text style={styles.text}>
                     Connectez-vous (par pitié)
